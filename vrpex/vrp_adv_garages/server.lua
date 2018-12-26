@@ -29,7 +29,7 @@ Proxy.addInterface("vrp_adv_garages",vRPg)
 Gclient = Tunnel.getInterface("vrp_adv_garages")
 
 -- Prepare
-vRP._prepare("vRP/move_vehicle","UPDATE vrp_user_vehicles SET user_id = @tuser_id WHERE user_id = @user_id AND vehicle = @vehicle")
+vRP:prepare("vRP/move_vehicle","UPDATE vrp_user_vehicles SET user_id = @tuser_id WHERE user_id = @user_id AND vehicle = @vehicle")
 
 -- CFG
 local cfg = module("vrp_adv_garages", "cfg/garages")
