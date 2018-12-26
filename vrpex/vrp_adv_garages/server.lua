@@ -33,7 +33,7 @@ vRP:prepare("vRP/move_vehicle","UPDATE vrp_user_vehicles SET user_id = @tuser_id
 
 -- CFG
 local cfg = module("vrp_adv_garages", "cfg/garages")
-local cfg_inventory = module("vrp","cfg/inventory")
+local cfg_inventory = module("vrp","cfg/garages")
 
 -- LANG
 Luang = module("vrp", "lib/Luang")
@@ -853,7 +853,7 @@ local veh_actions = {}
 -- open trunk
 veh_actions[lang.vehicle.trunk.title()] = {function(user_id,player,vtype,name)
   local chestname = "u"..user_id.."veh_"..string.lower(name)
-  local max_weight = cfg_inventory.vehicle_chest_weights[string.lower(name)] or cfg_inventory.default_vehicle_chest_weight
+  local max_weight = cfg_garages.vehicle_chest_weights[string.lower(name)] or cfg_garages.default_vehicle_chest_weight
 
   -- open chest
   Gclient.vc_openDoor(player, vtype,5)
@@ -1013,7 +1013,7 @@ local function ch_asktrunk(player,choice)
       local ok,vtype,name = Gclient.getNearestOwnedVehicle(nplayer,7)
       if ok then
         local chestname = "u"..nuser_id.."veh_"..string.lower(name)
-        local max_weight = cfg_inventory.vehicle_chest_weights[string.lower(name)] or cfg_inventory.default_vehicle_chest_weight
+        local max_weight = cfg_garages.vehicle_chest_weights[string.lower(name)] or cfg_garages.default_vehicle_chest_weight
 
         -- open chest
         local cb_out = function(idname,amount)
