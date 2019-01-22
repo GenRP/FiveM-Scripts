@@ -25,7 +25,7 @@ AddEventHandler("vRP:playerSpawn", function(user_id, source, first_spawn)
 		local address = vRP:get_address(character_id)
 	    if address then 
 		  SetTimeout(5000,function()
-		    user:accessHome(character_id, address.home, address.number)
+		    vRP:accessHome(character_id, address.home, address.number)
 		  end)
 	    end
 	end
