@@ -22,10 +22,10 @@ vRP = Proxy.getInterface("vRP")
 -- unfreeze on spawn
 AddEventHandler("vRP:playerSpawn", function(user_id, source, first_spawn)
 	if not first_spawn then
-		local address = vRP.getUserAddress(user_id)
+		local address = vRP:get_address(character_id)
 	    if address then 
 		  SetTimeout(5000,function()
-		    vRP.accessHome(user_id, address.home, address.number)
+		    user:accessHome(character_id, address.home, address.number)
 		  end)
 	    end
 	end
